@@ -1,0 +1,22 @@
+<a href="/logout">Logout</a>
+<br>
+<h2>Hi <%= @user.name%>!</h2>
+<br>
+<span style = "color:red"><%= flash[:errors] %></span>
+<form action="/posts" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+    <p><input type="text" name="idea[message]"> <input type="submit" value="Idea!"></p>
+</form>
+<br>
+
+<div>
+<h3>Ideas!</h3>
+    <div id="ideas">​
+        <!-- Show the messages by reverse to see the latest activity -->
+    <% @ideas.reverse.each do |element| %>​
+            <p> <%= element.user_id %> says: <%= element.message %></p>​
+            <a href="">Like</a> | people like this
+            <br>
+            <% end %>​
+        </div>​
+</div>

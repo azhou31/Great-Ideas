@@ -1,0 +1,22 @@
+<a href="/ideas">Bright Ideas</a> | <a href="/logout">Logout</a>
+<br>
+<h2>Idea:</h2>
+<p><%= @ideas.message %></p>
+<br>
+<h2>People who liked this post:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Alias</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+        <% @likers.each do |likers| %>
+    <tbody>
+        <tr>
+            <td><%= likers.alias %></td>
+            <td><%= likers.name %></td>            
+        </tr>
+    </tbody>
+        <% end %>
+</table>
